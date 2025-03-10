@@ -116,18 +116,19 @@ class _CountryFieldPickerState extends State<CountryFieldPicker> {
         );
       },
     );
-    return ListView(
-      physics: const BouncingScrollPhysics(),
-    children: [...children.toList(),ItemBox(
-          value:
-               '${widget.decoration.showFlag ? '🌎  '  : ''}$_searchValue',
-          decoration: widget.bottomSheetDecoration,
-          onTab: () {
-           context.read<CountriesBloc>().setCountry(name:_searchValue);
-            widget.onSelected!(_searchValue);
-            Navigator.of(context).pop();
-          },
-        ),]
-    );
+    return ListView(physics: const BouncingScrollPhysics(), children: [
+      ...children.toList(),
+
+      // ItemBox(
+      //       value:
+      //            '${widget.decoration.showFlag ? '🌎  '  : ''}$_searchValue',
+      //       decoration: widget.bottomSheetDecoration,
+      //       onTab: () {
+      //        context.read<CountriesBloc>().setCountry(name:_searchValue);
+      //         widget.onSelected!(_searchValue);
+      //         Navigator.of(context).pop();
+      //       },
+      //     ),
+    ]);
   }
 }

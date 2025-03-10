@@ -112,7 +112,7 @@ class _StateFieldPickerState extends State<StateFieldPicker> {
           value: item.name,
           decoration: widget.bottomSheetDecoration,
           onTab: () {
-            context.read<CountriesBloc>().setState(countryState:item);
+            context.read<CountriesBloc>().setState(countryState: item);
             widget.onSelected!(item.name);
             Navigator.of(context).pop();
           },
@@ -121,16 +121,19 @@ class _StateFieldPickerState extends State<StateFieldPicker> {
     );
     return ListView(
       physics: const BouncingScrollPhysics(),
-      children: [...children?.toList() ?? [],ItemBox(
-          value: _searchValue,
-          decoration: widget.bottomSheetDecoration,
-          onTab: () {
-            context.read<CountriesBloc>().setState(name:_searchValue);
-            widget.onSelected!(_searchValue);
-            Navigator.of(context).pop();
-          },
-        ),
-        ],
+      children: [
+        ...children?.toList() ?? [],
+
+        // ItemBox(
+        //     value: _searchValue,
+        //     decoration: widget.bottomSheetDecoration,
+        //     onTab: () {
+        //       context.read<CountriesBloc>().setState(name:_searchValue);
+        //       widget.onSelected!(_searchValue);
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+      ],
     );
   }
 }
